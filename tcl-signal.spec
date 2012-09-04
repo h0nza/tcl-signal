@@ -1,6 +1,6 @@
 Name:           tcl-signal
 Version:        1.4
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        This extension adds dynamically loadable signal handling to Tcl/Tk scripts
 
 Group:          System Environment/Libraries
@@ -22,8 +22,8 @@ BuildRequires:  tcl-devel
 %description
 This extension adds dynamically loadable signal handling to Tcl/Tk scripts.
 
-Note that the library has been renamed to libtclsignal.so for ease in linking
-and to prevent conflicts.
+Note that the library has been renamed to libtclsignal-%{version}.so for ease in
+linking and to prevent conflicts.
 
 
 %prep
@@ -54,6 +54,9 @@ chmod 644 $RPM_BUILD_ROOT%{_libdir}/tcl*/signal/pkgIndex.tcl
 
 
 %changelog
+* Tue Sep 4 2012 Orion Poplawski <orion@cora.nwra.com> 1.4-4
+- Fix library name in description
+
 * Mon Aug 27 2012 Orion Poplawski <orion@cora.nwra.com> 1.4-3
 - Use spaces
 - Drop BuildRoot, clean
