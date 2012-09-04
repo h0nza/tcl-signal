@@ -1,0 +1,46 @@
+diff -up signal_ext1.4/configure.libtclsignal signal_ext1.4/configure
+--- signal_ext1.4/configure.libtclsignal	2012-08-27 12:00:10.726588374 -0600
++++ signal_ext1.4/configure	2012-08-27 12:01:58.353583377 -0600
+@@ -544,7 +544,7 @@ test "$program_transform_name" = "" && p
+ 
+ 
+ PRODUCT=signal
+-VERSION=1.3
++VERSION=1.4
+ 
+ # Check whether --with-tcl or --without-tcl was given.
+ if test "${with_tcl+set}" = set; then
+@@ -1217,6 +1217,7 @@ s%@TCL_DEFS@%$TCL_DEFS%g
+ s%@INSTALL_PROGRAM@%$INSTALL_PROGRAM%g
+ s%@INSTALL_SCRIPT@%$INSTALL_SCRIPT%g
+ s%@INSTALL_DATA@%$INSTALL_DATA%g
++s%@VERSION@%$VERSION%g
+ 
+ CEOF
+ EOF
+diff -up signal_ext1.4/Makefile.in.libtclsignal signal_ext1.4/Makefile.in
+--- signal_ext1.4/Makefile.in.libtclsignal	2012-08-27 12:00:10.719588374 -0600
++++ signal_ext1.4/Makefile.in	2012-08-27 12:02:40.930581401 -0600
+@@ -1,17 +1,17 @@
+ CC=@TCL_CC@
+ #  Tilman Kranz; Sun Oct 19 23:21:35 CEST 2003: added Tcl include directives
+-CFLAGS=-I/usr/include @TCL_DEFS@ @TCL_SHLIB_CFLAGS@ -I@TCL_PREFIX@/include @TCL_INCLUDE_SPEC@ -I@TCL_INC_DIR@
++CFLAGS+=@TCL_DEFS@ @TCL_SHLIB_CFLAGS@ -I@TCL_PREFIX@/include @TCL_INCLUDE_SPEC@ -I@TCL_INC_DIR@
+ LD=@TCL_SHLIB_LD@
+-signal@TCL_SHLIB_SUFFIX@: signal_ext.c
++libtclsignal-@VERSION@@TCL_SHLIB_SUFFIX@: signal_ext.c
+ 	$(CC) $(CFLAGS) -c signal_ext.c 
+-	$(LD) signal_ext.o -o signal@TCL_SHLIB_SUFFIX@ @TCL_LIB_SPEC@ @TCL_LIBS@
++	$(LD) signal_ext.o -o libtclsignal-@VERSION@@TCL_SHLIB_SUFFIX@ @TCL_LIB_SPEC@
+ 	-rm -f signal_ext.o
+ install:
+ 	-mkdir -p $(DESTDIR)@TCL_PACKAGE_PATH@/signal
+-	@INSTALL@ signal@TCL_SHLIB_SUFFIX@ $(DESTDIR)@TCL_PACKAGE_PATH@/signal
++	@INSTALL@ libtclsignal-@VERSION@@TCL_SHLIB_SUFFIX@ $(DESTDIR)@libdir@
+ 	@INSTALL@ pkgIndex.tcl $(DESTDIR)@TCL_PACKAGE_PATH@/signal
+ clean:
+-	-rm -f signal@TCL_SHLIB_SUFFIX@ so_locations Makefile config.log config.status config.cache
++	-rm -f libtclsignal-@VERSION@@TCL_SHLIB_SUFFIX@ so_locations Makefile config.log config.status config.cache
+ dist:
+ 	-rm -f so_locations config.log config.status config.cache
+ 	-make clean

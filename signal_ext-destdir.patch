@@ -1,0 +1,15 @@
+--- signal_ext1.4/Makefile.in.destdir	2003-10-28 22:27:14.000000000 -0700
++++ signal_ext1.4/Makefile.in	2011-05-04 11:00:38.244614502 -0600
+@@ -7,9 +7,9 @@
+ 	$(LD) signal_ext.o -o signal@TCL_SHLIB_SUFFIX@ @TCL_LIB_SPEC@ @TCL_LIBS@
+ 	-rm -f signal_ext.o
+ install:
+-	-mkdir @TCL_PACKAGE_PATH@/signal
+-	@INSTALL@ signal@TCL_SHLIB_SUFFIX@ @TCL_PACKAGE_PATH@/signal
+-	@INSTALL@ pkgIndex.tcl @TCL_PACKAGE_PATH@/signal
++	-mkdir -p $(DESTDIR)@TCL_PACKAGE_PATH@/signal
++	@INSTALL@ signal@TCL_SHLIB_SUFFIX@ $(DESTDIR)@TCL_PACKAGE_PATH@/signal
++	@INSTALL@ pkgIndex.tcl $(DESTDIR)@TCL_PACKAGE_PATH@/signal
+ clean:
+ 	-rm -f signal@TCL_SHLIB_SUFFIX@ so_locations Makefile config.log config.status config.cache
+ dist:

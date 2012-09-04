@@ -1,0 +1,11 @@
+--- signal_ext1.4/configure.tclpath	2003-10-28 22:10:39.000000000 -0700
++++ signal_ext1.4/configure	2011-05-04 10:57:33.150845920 -0600
+@@ -586,6 +586,8 @@
+ fi
+ # -MODIFIED- stop
+ 
++#Take only the first path
++TCL_PACKAGE_PATH=`echo $TCL_PACKAGE_PATH | awk '{print $1}'`
+ 
+ 
+ echo $ac_n "checking how to run the C preprocessor""... $ac_c" 1>&6

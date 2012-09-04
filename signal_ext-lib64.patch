@@ -1,0 +1,20 @@
+--- signal_ext1.4/configure.lib64	2011-05-04 11:07:27.681775049 -0600
++++ signal_ext1.4/configure	2011-05-04 11:11:29.562103865 -0600
+@@ -561,7 +561,7 @@
+ # -MODIFIED-
+ # from 1.4 to 1.4-confpatch by tilman kranz
+ # totally bogus (sorry) auto-detection for "tclInit.sh"
+-TclConfigSh=$TCL_BIN_DIR/../lib/tclConfig.sh
++TclConfigSh=$TCL_BIN_DIR/../lib*/tclConfig.sh
+ if test -r $TclConfigSh ; then
+    . $TclConfigSh
+ else
+@@ -569,7 +569,7 @@
+    for this_tcl_version in 8.1 8.2 8.3 8.4 8.5 ; do
+       echo $ac_n "checking \$this_tcl_version=$this_tcl_version""... $ac_c" 1>&6
+ echo "configure:572: checking \$this_tcl_version=$this_tcl_version" >&5
+-      test_tclsh=$prefix/lib/tcl$this_tcl_version/tclConfig.sh
++      test_tclsh=$prefix/lib*/tcl$this_tcl_version/tclConfig.sh
+       if test -r $test_tclsh ; then
+          echo "$ac_t""found $test_tclsh" 1>&6
+ 	 ok_tclsh=$test_tclsh
