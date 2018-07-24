@@ -16,6 +16,7 @@ Patch2:         signal_ext-lib64.patch
 #Rename library to libtclsignal.so
 Patch3:         signal_ext-libtclsignal.patch
 
+BuildRequires:  gcc
 BuildRequires:  tcl-devel
 
 
