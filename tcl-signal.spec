@@ -3,7 +3,6 @@ Version:        1.4
 Release:        16%{?dist}
 Summary:        This extension adds dynamically loadable signal handling to Tcl/Tk scripts
 
-Group:          System Environment/Libraries
 License:        MIT
 URL:            http://www.nyx.net/~mschwart/signal_ext.html
 Source0:        http://www.nyx.net/~mschwart/signal_ext1.4.tar.gz
