@@ -1,6 +1,6 @@
 Name:           tcl-signal
 Version:        1.4
-Release:        19%{?dist}
+Release:        20%{?dist}
 Summary:        This extension adds dynamically loadable signal handling to Tcl/Tk scripts
 
 License:        MIT
@@ -54,6 +54,9 @@ chmod 644 $RPM_BUILD_ROOT%{_libdir}/tcl*/signal/pkgIndex.tcl
 
 
 %changelog
+* Wed Jul 29 2020 Fedora Release Engineering <releng@fedoraproject.org> - 1.4-20
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_33_Mass_Rebuild
+
 * Fri Jan 31 2020 Fedora Release Engineering <releng@fedoraproject.org> - 1.4-19
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_32_Mass_Rebuild
 
