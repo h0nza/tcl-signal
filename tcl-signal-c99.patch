@@ -1,0 +1,18 @@
+Only patching configure because (theoretical) regeneration with current
+autoconf will fix this as upstream autoconf has itself been fixed.
+
+diff --git a/configure b/configure
+index 6d93d976873e878e..ed02d3f7fe44d2ab 100755
+--- a/configure
++++ b/configure
+@@ -747,8 +747,8 @@ else
+ #define TOUPPER(c) (ISLOWER(c) ? 'A' + ((c) - 'a') : (c))
+ #define XOR(e, f) (((e) && !(f)) || (!(e) && (f)))
+ int main () { int i; for (i = 0; i < 256; i++)
+-if (XOR (islower (i), ISLOWER (i)) || toupper (i) != TOUPPER (i)) exit(2);
+-exit (0); }
++if (XOR (islower (i), ISLOWER (i)) || toupper (i) != TOUPPER (i)) return 2;
++return 0; }
+ 
+ EOF
+ if { (eval echo configure:753: \"$ac_link\") 1>&5; (eval $ac_link) 2>&5; } && test -s conftest${ac_exeext} && (./conftest; exit) 2>/dev/null
